@@ -73,7 +73,7 @@ class Login extends BaseController
         }
         else
         {
-            redirect('/dashboard');
+            redirect('dashboard');
         }
     }
 
@@ -123,14 +123,14 @@ class Login extends BaseController
 
                     $this->logrecord($process,$processFunction);
 
-                    redirect('/dashboard');
+                    redirect('dashboard');
                 }
             }
             else
             {
                 $this->session->set_flashdata('error', 'ที่อยู่อีเมลหรือรหัสผ่านไม่ถูกต้อง');
 
-                redirect('/login');
+                redirect('login');
             }
         }
     }
@@ -148,7 +148,7 @@ class Login extends BaseController
         }
         else
         {
-            redirect('/dashboard');
+            redirect('dashboard');
         }
     }
 
@@ -220,7 +220,7 @@ class Login extends BaseController
                 $status = 'invalid';
                 setFlashData($status, "ที่อยู่อีเมลของคุณไม่ได้ลงทะเบียนในระบบ.");
             }
-            redirect('/forgotPassword');
+            redirect('forgotPassword');
         }
     }
 
@@ -246,7 +246,7 @@ class Login extends BaseController
         }
         else
         {
-            redirect('/login');
+            redirect('login');
         }
     }
 
@@ -296,7 +296,7 @@ class Login extends BaseController
 
             setFlashData($status, $message);
 
-            redirect("/login");
+            redirect("login");
         }
     }
 }
