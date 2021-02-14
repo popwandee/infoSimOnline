@@ -31,7 +31,7 @@ class Info_model extends CI_Model
      * @param number $segment : This is pagination limit
      * @return array $result : This is result
      */
-    function infoListing($searchText = '', $page, $segment)
+    function infoListing($searchText = '', $page = '', $segment = '')
     {
         $this->db->select('BaseTbl.infoId, BaseTbl.title, BaseTbl.content, BaseTbl.image, Role.piorityId');
         $this->db->from('tbl_infos as BaseTbl');
@@ -289,18 +289,6 @@ function uploadImageFile($imageDetail)
         $query = $this->db->get($tablename);
 
         return $query->row();
-    }
-
-    /**
-     * This function is used to get the tasks count
-     * @return array $result : This is result
-     */
-    function infosCount()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_infos BaseTbl');
-        $query = $this->db->get();
-        return $query->num_rows();
     }
 
     /**
