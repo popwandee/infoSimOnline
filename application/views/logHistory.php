@@ -9,8 +9,8 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <i class="fa fa-users"></i> ประวัติบันทึก
-      <small>ประวัติการเข้าสู่ระบบของผู้ใช้</small>
+      <i class="fa fa-users"></i> ประวัติการใช้งานระบบ
+      <small>ประวัติการเข้าใช้งานระบบ</small>
     </h1>
   </section>
   <section class="content">
@@ -18,7 +18,7 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title"> ขนาดแผนภูมิบันทึกของคุณ:
+            <h3 class="box-title"> ขนาดข้อมูลของคุณ:
               <?php
                   if(isset($dbinfo->total_size))
                   {
@@ -32,7 +32,7 @@
                   ?>
                 MB</h3>
             <div class="pull-right">
-              <a class="btn btn-danger" href="<?php echo base_url(); ?>backupLogTable">เพิ่มและลบ</a>
+              <a class="btn btn-danger" href="<?php echo base_url(); ?>backupLogTable">สำรองข้อมูล</a>
             </div>
             <div class="box-tools">
             </div>
@@ -65,14 +65,14 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>ผู้ใช้ Adı</th>
+                      <th>ผู้ใช้</th>
                       <th>การดำเนินการ</th>
                       <th>ฟังก์ชันการทำงาน</th>
-                      <th>ผู้ใช้ Role ID</th>
-                      <th>ผู้ใช้ Role</th>
+                      <!--<th>ผู้ใช้ Role ID</th>-->
+                      <!--<th>ผู้ใช้ Role</th>-->
                       <th>ผู้ใช้ IP</th>
-                      <th>สแกนเนอร์</th>
-                      <th>สแกนเนอร์ ข้อมูลทั้งหมด</th>
+                      <!--<th>สแกนเนอร์</th>-->
+                      <!--<th>สแกนเนอร์ ข้อมูลทั้งหมด</th>-->
                       <th>Platform</th>
                       <th>วันและเวลา</th>
                     </tr>
@@ -97,21 +97,21 @@
                         <td>
                           <?php echo $record->processFunction ?>
                         </td>
-                        <td>
-                          <?php echo $record->userRoleId ?>
-                        </td>
-                        <td>
-                          <?php echo $record->userRoleText ?>
-                        </td>
+                        <!--<td>-->
+                          <?php //echo $record->userRoleId ?>
+                        <!--</td>-->
+                        <!--<td>-->
+                          <?php //echo $record->userRoleText ?>
+                        <!--</td>-->
                         <td>
                           <?php echo $record->userIp ?>
                         </td>
-                        <td>
-                          <?php echo $record->userAgent ?>
-                        </td>
-                        <td>
-                          <?php echo $record->agentString ?>
-                        </td>
+                        <!--<td>-->
+                          <?php //echo $record->userAgent ?>
+                        <!--</td>-->
+                        <!--<td>-->
+                          <?php //echo $record->agentString ?>
+                        <!--</td>-->
                         <td>
                           <?php echo $record->platform ?>
                         </td>

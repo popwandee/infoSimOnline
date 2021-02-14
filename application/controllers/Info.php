@@ -1,7 +1,15 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require APPPATH . '/libraries/BaseController.php';
-
+// Cloudinary
+require 'assets/plugins/cloudinary/cloudinary_php/src/Cloudinary.php';
+require 'assets/plugins/cloudinary/cloudinary_php/src/Uploader.php';
+require 'assets/plugins/cloudinary/cloudinary_php/src/Api.php';
+\Cloudinary::config(array(
+    'cloud_name' => 'crma51',
+    'api_key' => '486757946979428',
+    'api_secret' => 'cT7-rRMQmkCINwzvaVdFIy_SaUU'
+));
 /**
  * Class : User (UserController)
  * User Class to control all user related operations.
@@ -179,6 +187,22 @@ class Info extends BaseController
                redirect('addNewInfo');
            }
        }
+
+
+       function upload_image($files,$folder,$file_publicid,$tag=""){
+               $files = $files["single_upload_image"]["tmp_name"];
+               $target_file = basename($_FILES["single_upload_image"]["name"]);
+               $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+               if(!empty($imageFileType)){
+                 $option=array("folder" => $folder,"tags"=>$tag,"public_id" => $file_publicid);
+                 $cloudUpload = \Cloudinary\Uploader::upload($files,$option);
+                 $image_url ="$folder/$file_publicid.".$imageFileType;
+               }else{
+                 $image_url ="sample.jpg";
+               }
+               return $image_url;
+       }
+
        /**
        * This function is used to add new infos to the system
        */
