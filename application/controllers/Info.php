@@ -6,9 +6,10 @@ require 'assets/plugins/cloudinary/cloudinary_php/src/Cloudinary.php';
 require 'assets/plugins/cloudinary/cloudinary_php/src/Uploader.php';
 require 'assets/plugins/cloudinary/cloudinary_php/src/Api.php';
 \Cloudinary::config(array(
-    'cloud_name' => 'crma51',
-    'api_key' => '486757946979428',
-    'api_secret' => 'cT7-rRMQmkCINwzvaVdFIy_SaUU'
+    'cloud_name' => 'infosimonline',
+    'api_key' => '662235653456635',
+    'api_secret' => 'lAf4YxDOyfGrYR2BV8NlUpn50cQ'
+    
 ));
 /**
  * Class : User (UserController)
