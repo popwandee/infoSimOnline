@@ -121,10 +121,19 @@ class Info extends BaseController
                    $count = count($_FILES['files']['name']);
                    for($i=0;$i<$count;$i++){
                        if(!empty($_FILES['files']['name'][$i])){
+                           $file = $_FILES['files']['tmp_name'][$i];
                            $folder = "infoImage";
                            $file_publicid = $infoId.$i;
                            $tag = $title;
-                            $imageUrl = $this->upload_image($files,$folder,$file_publicid,$tag);
+                           $target_file = basename($_FILES["files"]["name"][$i]);
+                           $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                           if(!empty($imageFileType)){
+                             $option=array("folder" => $folder,"tags"=>$tag,"public_id" => $file_publicid);
+                             $cloudUpload = \Cloudinary\Uploader::upload($file,$option);
+                             $imageUrl ="$folder/$file_publicid.".$imageFileType;
+                           }else{
+                             $imageUrl ="sample.jpg";
+                           }
                             echo $imageUrl."<br>";
                         }
                     }
@@ -162,21 +171,6 @@ class Info extends BaseController
 
                redirect('addNewInfo');
            }
-       }
-
-
-       function upload_image($files,$folder,$file_publicid,$tag=""){
-               $files = $files["single_upload_image"]["tmp_name"];
-               $target_file = basename($_FILES["single_upload_image"]["name"]);
-               $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-               if(!empty($imageFileType)){
-                 $option=array("folder" => $folder,"tags"=>$tag,"public_id" => $file_publicid);
-                 $cloudUpload = \Cloudinary\Uploader::upload($files,$option);
-                 $image_url ="$folder/$file_publicid.".$imageFileType;
-               }else{
-                 $image_url ="sample.jpg";
-               }
-               return $image_url;
        }
 
        /**
