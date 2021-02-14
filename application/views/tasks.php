@@ -9,15 +9,15 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <i class="fa fa-users"></i> งานทั้งหมด
-      <small>งานทั้งหมดในแผงควบคุมของเรา</small>
+      <i class="fa fa-users"></i> หขส./ตขอ. ทั้งหมด
+      <small>หขส./ตขอ. ทั้งหมดในแผงควบคุมของเรา</small>
     </h1>
   </section>
   <section class="content">
     <div class="col-xs-12">
       <div class="text-right">
         <a class="btn btn-primary" href="<?php echo base_url(); ?>addNewTask">
-          <i class="fa fa-plus"></i> เพิ่มงาน</a>
+          <i class="fa fa-plus"></i> เพิ่ม หขส./ตขอ.</a>
       </div>
       <div class="box">
         <div class="box-header">
@@ -52,7 +52,7 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>ชื่องาน</th>
+                    <th>หขส./ตขอ.</th>
                     <th>คำอธิบาย</th>
                     <th>เงื่อนไข</th>
                     <th>ลำดับความสำคัญ</th>
@@ -61,7 +61,7 @@
                     <th>วันที่สร้าง</th>
                     <th>วันที่สิ้นสุด</th>
                     <th>ธุรกรรม</th>
-                    <th>เสร็จสิ้นงาน</th>
+                    <th>หขส./ตขอ. เสร็จสิ้น</th>
                   </tr>
                 </thead>
                 <tbody>

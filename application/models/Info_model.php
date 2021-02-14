@@ -49,6 +49,17 @@ class Info_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+    /**
+     * This function is used to get the tasks count
+     * @return array $result : This is result
+     */
+    function infosCount()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_infos as BaseTbl');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
 
         /**
          * This function is used to get the user listing count

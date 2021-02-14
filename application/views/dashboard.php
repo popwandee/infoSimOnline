@@ -15,7 +15,7 @@
             <h3>
               <?php if(isset($tasksCount)) { echo $tasksCount; } else { echo '0'; } ?>
             </h3>
-            <p>งาน</p>
+            <p>หขส./ตขอ.</p>
           </div>
           <div class="icon">
             <i class="fa fa-tasks"></i>
@@ -33,7 +33,7 @@
             <h3>
               <?php if(isset($finishedTasksCount)) { echo $finishedTasksCount; } else { echo '0'; } ?>
             </h3>
-            <p>เสร็จสิ้นงาน</p>
+            <p>เสร็จสิ้น หขส./ตขอ.</p>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
@@ -67,14 +67,14 @@
         <div class="small-box bg-red">
           <div class="inner">
             <h3>
-              <?php if(isset($logsCount)) { echo $logsCount; } else { echo '0'; } ?>
+              <?php if(isset($infosCount)) { echo $infosCount; } else { echo '0'; } ?>
             </h3>
-            <p>Log</p>
+            <p>ข่าวสาร</p>
           </div>
           <div class="icon">
             <i class="fa fa-archive"></i>
           </div>
-          <a href="<?php echo base_url(); ?>log-history" class="small-box-footer">ข้อมูลมากกว่านี้
+          <a href="<?php echo base_url(); ?>einfo" class="small-box-footer">ข้อมูลมากกว่านี้
             <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
@@ -89,12 +89,12 @@
           <dt class="col-sm-3">ชื่อโปรแกรม</dt>
           <dd class="col-sm-9">ระบบจำลองสถานการณ์ข่าวกรอง เพื่อการฝึกเจ้าหน้าที่ดำเนินกรรมวิธีข่าวกรอง</dd>
 
-          <dt class="col-sm-3">การบริหารจัดการงาน</dt>
+          <dt class="col-sm-3">การบริหารจัดการ หขส./ตขอ.</dt>
           <dd class="col-sm-9">
-          <p>การสร้างงานใหม่</p>
-          <p>การแก้ไขงาน</p>
-          <p>การลบงาน</p>
-          <p>การปรับแก้ไขสถานะงาน</p>
+          <p>การสร้าง หขส./ตขอ.ใหม่</p>
+          <p>การแก้ไข หขส./ตขอ.</p>
+          <p>การลบ หขส./ตขอ.</p>
+          <p>การปรับแก้ไขสถานะ หขส./ตขอ.</p>
           </dd>
 
           <dt class="col-sm-3">Malesuada porta</dt>

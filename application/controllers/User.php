@@ -29,9 +29,10 @@ class User extends BaseController
     {
         $this->global['pageTitle'] = 'InfoSim : หน้าแรก';
 
-        $data['tasksCount'] = $this->user_model->tasksCount();
+        $data['tasksCount'] = $this->user_model->tasksCount();// หขส./ตขอ.
         $data['finishedTasksCount'] = $this->user_model->finishedTasksCount();
         $data['logsCount'] = $this->user_model->logsCount();
+        $data['infosCount'] = $this->info_model->infosCount();
         $data['usersCount'] = $this->user_model->usersCount();
 
         if ($this->getUserStatus() == TRUE)
@@ -228,10 +229,10 @@ class User extends BaseController
             $result = $this->user_model->endTask($taskId, $taskInfo);
 
             if ($result > 0) {
-                 $process = 'เสร็จสิ้นงาน';
+                 $process = 'หขส./ตขอ. เสร็จสิ้น';
                  $processFunction = 'User/endTask';
                  $this->logrecord($process,$processFunction);
-                 $this->session->set_flashdata('success', 'ภารกิจสำเร็จลุล่วง');
+                 $this->session->set_flashdata('success', 'หขส./ตขอ. สำเร็จลุล่วง');
                  if ($this->role != ROLE_EMPLOYEE){
                     redirect('tasks');
                  }
@@ -240,7 +241,7 @@ class User extends BaseController
                  }
                 }
             else {
-                $this->session->set_flashdata('error', 'งานไม่สำเร็จ');
+                $this->session->set_flashdata('error', 'อัพเดต หขส./ตขอ. ไม่สำเร็จ');
                 if ($this->role != ROLE_EMPLOYEE){
                     redirect('tasks');
                  }
@@ -252,21 +253,18 @@ class User extends BaseController
 
     /**
      * This function is used to open the tasks page for users (no edit/delete etc)
+     * เปิดอ่าน หขส./ตขอ.
      */
     function etasks()
     {
             $data['taskRecords'] = $this->user_model->getTasks();
-
-            $process = 'ผู้ใช้งาน';
-            $processFunction = 'User/etasks';
-            $this->logrecord($process,$processFunction);
 
             $this->global['pageTitle'] = 'InfoSim : งานทั้งหมด';
 
             $this->loadViews("etasks", $this->global, $data, NULL);
     }
 
-    
+
 }
 
 ?>

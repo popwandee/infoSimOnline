@@ -9,8 +9,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-users"></i> การจัดการงาน
-            <small>เพิ่ม / แก้ไขงาน</small>
+            <i class="fa fa-users"></i> การจัดการ หขส./ตขอ.
+            <small>เพิ่ม / แก้ไข หขส./ตขอ.</small>
         </h1>
     </section>
     <section class="content">
@@ -20,7 +20,7 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">ป้อนข้อมูลงาน</h3>
+                        <h3 class="box-title">ป้อนข้อมูล หขส./ตขอ.</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="fname">ชื่องาน</label>
+                                        <label for="fname">หขส./ตขอ.</label>
                                         <input type="text" class="form-control required" value="<?php echo set_value('fname'); ?>" id="fname" name="fname">
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="comment">คำอธิบายงาน</label>
+                                        <label for="comment">คำอธิบาย หขส./ตขอ.</label>
                                         <textarea class="form-control" id="comment" name="comment" rows="4">
                                             <?php echo set_value('comment'); ?>
                                         </textarea>

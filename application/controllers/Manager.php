@@ -43,11 +43,11 @@ class Manager extends BaseController
     {
             $data['taskRecords'] = $this->user_model->getTasks();
 
-            $process = 'งานทั้งหมด';
+            $process = 'หขส./ตขอ. ทั้งหมด';
             $processFunction = 'Manager/tasks';
             $this->logrecord($process,$processFunction);
 
-            $this->global['pageTitle'] = 'InfoSim : งานทั้งหมด';
+            $this->global['pageTitle'] = 'InfoSim : หขส./ตขอ. ทั้งหมด';
 
             $this->loadViews("tasks", $this->global, $data, NULL);
     }
@@ -59,7 +59,7 @@ class Manager extends BaseController
     {
             $data['tasks_prioritys'] = $this->user_model->getTasksPrioritys();
 
-            $this->global['pageTitle'] = 'InfoSim : เพิ่มงาน';
+            $this->global['pageTitle'] = 'InfoSim : เพิ่ม หขส./ตขอ.';
 
             $this->loadViews("addNewTask", $this->global, $data, NULL);
     }
@@ -71,7 +71,7 @@ class Manager extends BaseController
     {
             $this->load->library('form_validation');
 
-            $this->form_validation->set_rules('fname','ชื่องาน','required');
+            $this->form_validation->set_rules('fname','ชื่อ หขส./ตขอ.','required');
             $this->form_validation->set_rules('priority','ลำดับความสำคัญ','required');
 
             if($this->form_validation->run() == FALSE)
@@ -93,15 +93,15 @@ class Manager extends BaseController
 
                 if($result > 0)
                 {
-                    $process = 'เพิ่มงานใหม่';
+                    $process = 'เพิ่ม หขส./ตขอ. ใหม่';
                     $processFunction = 'Manager/addNewTasks';
                     $this->logrecord($process,$processFunction);
 
-                    $this->session->set_flashdata('success', 'สร้างงานสำเร็จแล้ว');
+                    $this->session->set_flashdata('success', 'สร้าง หขส./ตขอ. สำเร็จแล้ว');
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', 'การสร้างงานล้มเหลว');
+                    $this->session->set_flashdata('error', 'การสร้าง หขส./ตขอ. ล้มเหลว');
                 }
 
                 redirect('addNewTask');
@@ -122,7 +122,7 @@ class Manager extends BaseController
             $data['tasks_prioritys'] = $this->user_model->getTasksPrioritys();
             $data['tasks_situations'] = $this->user_model->getTasksSituations();
 
-            $this->global['pageTitle'] = 'InfoSim : แก้ไขงาน';
+            $this->global['pageTitle'] = 'InfoSim : แก้ไข หขส./ตขอ.';
 
             $this->loadViews("editOldTask", $this->global, $data, NULL);
     }
@@ -134,7 +134,7 @@ class Manager extends BaseController
     {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('fname','ชื่องาน','required');
+        $this->form_validation->set_rules('fname','ชื่อเรื่อง หขส./ตขอ.','required');
         $this->form_validation->set_rules('priority','ลำดับความสำคัญ','required');
 
         $taskId = $this->input->post('taskId');
@@ -159,14 +159,14 @@ class Manager extends BaseController
 
             if($result > 0)
             {
-                $process = 'แก้ไขงาน';
+                $process = 'แก้ไข หขส./ตขอ.';
                 $processFunction = 'Manager/editTask';
                 $this->logrecord($process,$processFunction);
-                $this->session->set_flashdata('success', 'แก้ไขงานสำเร็จ');
+                $this->session->set_flashdata('success', 'แก้ไข หขส./ตขอ. สำเร็จ');
             }
             else
             {
-                $this->session->set_flashdata('error', 'การแก้ไขงานล้มเหลว');
+                $this->session->set_flashdata('error', 'การแก้ไข หขส./ตขอ. ล้มเหลว');
             }
             redirect('tasks');
 
@@ -186,15 +186,15 @@ class Manager extends BaseController
             $result = $this->user_model->deleteTask($taskId);
 
             if ($result == TRUE) {
-                 $process = 'การลบงาน';
+                 $process = 'การลบ หขส./ตขอ.';
                  $processFunction = 'Manager/deleteTask';
                  $this->logrecord($process,$processFunction);
 
-                 $this->session->set_flashdata('success', 'ลบงานสำเร็จ');
+                 $this->session->set_flashdata('success', 'ลบ หขส./ตขอ. สำเร็จ');
                 }
             else
             {
-                $this->session->set_flashdata('error', 'การลบงานล้มเหลว');
+                $this->session->set_flashdata('error', 'การลบ หขส./ตขอ. ล้มเหลว');
             }
             redirect('tasks');
     }
@@ -204,7 +204,7 @@ class Manager extends BaseController
      */
     public function manageInfo()
     {
-        $data['infoRecords'] = $this->info_model->getInfos();
+        $data['infoRecords'] = $this->info_model->getAllInfos();
 
         $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมด';
 
