@@ -123,7 +123,7 @@ class Info extends BaseController
                            $folder = "infoSimOnline";
                            $file_publicid = $infoId.$i;
                            $tag = $title;
-                            $imageUrl = upload_image($files,$folder,$file_publicid,$tag);
+                            $imageUrl = $this->upload_image($files,$folder,$file_publicid,$tag);
                             echo $imageUrl."<br>";
                         }
                     }
