@@ -9,7 +9,7 @@ require 'assets/plugins/cloudinary/cloudinary_php/src/Api.php';
     'cloud_name' => 'infosimonline',
     'api_key' => '662235653456635',
     'api_secret' => 'lAf4YxDOyfGrYR2BV8NlUpn50cQ'
-    
+
 ));
 /**
  * Class : User (UserController)
@@ -121,7 +121,7 @@ class Info extends BaseController
                    $count = count($_FILES['files']['name']);
                    for($i=0;$i<$count;$i++){
                        if(!empty($_FILES['files']['name'][$i])){
-                           $folder = "infoSimOnline";
+                           $folder = "infoImage";
                            $file_publicid = $infoId.$i;
                            $tag = $title;
                             $imageUrl = $this->upload_image($files,$folder,$file_publicid,$tag);
