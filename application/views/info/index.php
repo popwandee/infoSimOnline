@@ -54,13 +54,13 @@
               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables2">
                 <thead>
                   <tr>
-                    <th>ที่ของข่าว</th>
+                    <th width="10%">ที่ของข่าว</th>
                     <th>หัวเรื่อง</th>
-                    <th>ข่าวสาร</th>
-                    <th>สถานะ</th>
-                    <th>ลำดับความสำคัญ</th>
-                    <th>วันที่สร้าง</th>
-                    <th>การดำเนินการ</th>
+                    <!--<th>ข่าวสาร</th>-->
+                    <th width="15%">วันที่รายงาน</th>
+                    <th width="15%">ลำดับความสำคัญ</th>
+                    <th width="10%">สถานะ</th>
+                    <th width="10%">การดำเนินการ</th>
                   </tr>
                 </thead>
                 <tbody id="show_data">
@@ -100,14 +100,18 @@
                         html += '<tr>'+
                                 '<td>'+data[i].infoId+'</td>'+
                                 '<td><a href="infoDetail/'+data[i].infoId+'">'+data[i].title+'</a></td>'+
-                                '<td>'+data[i].content+'</td>'+
-                                '<td class='+data[i].statusClass+'>'+data[i].statusId+'</td>'+
-                                '<td class='+data[i].priorityClass+'>'+data[i].priorityId+'</td>'+
-                                '<td>'+data[i].createdDtm+data[i].dateTimeToPublish+'</td>'+
-                                '<td style="text-align:right;">'+
-                                    '<a href="editOldInfo/'+data[i].infoId+'" class="btn btn-info btn-sm item_edit" data-infoId="'+data[i].infoId+'" data-product_name="'+data[i].title+'" data-price="'+data[i].title+'">Edit</a>'+' '+
-                                    '<a href="deleteInfo/'+data[i].infoId+'" class="btn btn-danger btn-sm item_delete" data-infoId="'+data[i].infoId+'">Delete</a>'+
-                                '</td>'+
+                                //'<td>'+data[i].content+'</td>'+
+                                '<td>'+data[i].dateTimeToPublish+'</td>'+
+                                '<td class='+data[i].priorityClass+'>'+data[i].priority+'</td>'+
+                                '<td class='+data[i].statusClass+'>'+data[i].status+'</td>'+
+                                '<td style="text-align:right;">';
+                                if (data[i].statusId < 3) {
+                                    html +='<a href="operateInfo/'+data[i].infoId+'" class="btn btn-success btn-sm item_edit" data-infoId="'+data[i].infoId+'">แจ้งดำเนินการแล้ว</a>'
+                                    //'<a href="editOldInfo/'+data[i].infoId+'" class="btn btn-info btn-sm item_edit" data-infoId="'+data[i].infoId+'" data-product_name="'+data[i].title+'" data-price="'+data[i].title+'">Edit</a>'+' '+
+                                    //'<a href="deleteInfo/'+data[i].infoId+'" class="btn btn-danger btn-sm item_delete" data-infoId="'+data[i].infoId+'">Delete</a>'+
+                                    ;
+                                }
+                        html +='</td>'+
                                 '</tr>';
                                 } // end if
                     }// end for

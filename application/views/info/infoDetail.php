@@ -9,8 +9,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <i class="fa fa-users"></i> การจัดการข่าวสาร
-                <small>เพิ่ม / แก้ไขข่าวสาร</small>
+                <i class="fa fa-users"></i> ข่าวสาร
+                <small>อ่านข่าวสาร</small>
             </h1>
         </section>
         <section class="content">
@@ -45,34 +45,47 @@
                         <?php $this->load->helper("form"); ?>
                         <form role="form" id="editOldInfo" action="<?php echo base_url() ?>editInfo" method="post" role="form">
                             <div class="box-body">
+
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="status">ที่ของข่าว</label>
+                                            <input type="text" class="form-control" name="infoId" value="<?php echo $infoId  ?>" readonly>
+                                        </div>
+                                    </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="role">ลำดับความสำคัญ</label>
+                                        <input type="text" class="form-control" name="priority" value="<?php echo $priority ?>" readonly>
+                                    </div>
+                                </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="status">สถานะ</label>
+                                                <input type="text" class="form-control" id="status" name="status" value="<?php echo $status  ?>" readonly>
+                                                <?php
+                                                    if($statusId<3){?>
+                                                        <a href="<?php echo base_url().'operateInfo/'.$infoId;?>"><input type="button" class="btn btn-primary" name="doneButton" id="doneButton" value="แจ้งดำเนินการแล้ว"></a>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </div>
+                                        </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="fname">เรื่อง</label>
-                                            <input type="hidden" name="taskId" id="infoId" value="<?php echo $infoId; ?>">
                                             <input type="text" class="form-control required" value="<?php echo $title; ?>" id="title" name="title" readonly>
                                         </div>
 
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="role">ลำดับความสำคัญ</label>
-                                            <input type="text" class="form-control" name="priority" value="<?php echo $infosPriority->priority ?>" readonly>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="status">สถานะ</label>
-                                            <input type="text" class="form-control" name="priority" value="<?php echo $infosStatus->status  ?>" readonly>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="comment">Detail content</label>
+                                            <label for="comment">เนื้อหา</label>
                                             <textarea class="form-control" id="content" name="content" rows="4" readonly><?php echo $content; ?></textarea>
                                         </div>
                                     </div>
@@ -85,7 +98,7 @@
                                     if(!empty($images))
                                     {
                                         foreach ($images as $image){
-                                            echo '<img src='.base_url().'uploads/'.$image->url.' width="300">';
+                                            echo '<img src='.base_url().'uploads/'.$image->url.' width="300"><br>';
                                         }
                                     }?>
 
@@ -126,5 +139,14 @@
         </section>
 
         </div>
+    <script type="text/javascript">
+        $("doneButton").click(function(){
+            alert("OK");
+          $.ajax({url: "operateInfo/<?php echo $infoId; ?>",
+                success: function(result){
+                $("#status").html(result);
+          }});
+        });
+    </script>
     </body>
     </html>
