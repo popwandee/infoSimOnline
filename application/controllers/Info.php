@@ -120,36 +120,11 @@ class Info extends BaseController
                    $count = count($_FILES['files']['name']);
                    for($i=0;$i<$count;$i++){
                        if(!empty($_FILES['files']['name'][$i])){
-                        $_FILES['file']['name'] = $_FILES['files']['name'][$i];
-                        $_FILES['file']['type'] = $_FILES['files']['type'][$i];
-                        $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
-                        $_FILES['file']['error'] = $_FILES['files']['error'][$i];
-                        $_FILES['file']['size'] = $_FILES['files']['size'][$i];
-
-                        $config['upload_path'] = 'uploads/';
-                        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-                        $config['max_size'] = '50000';
-                        $config['file_name'] = $infoId."-".$i.".jpg"; //$_FILES['files']['name'][$i];
-
-                        $this->load->library('upload',$config);
-
-                        if($this->upload->do_upload('file')){
-                              $uploadData = $this->upload->data();
-                              $filename = $uploadData['file_name'];
-
-                              $data['totalFiles'][] = $filename;
-
-                              $tag='';
-                              $imageDetail = array('infoId'=>$infoId, 'url'=>$filename,'tag'=>$tag);
-                              $result = $this->info_model->uploadImageFile($imageDetail);
-                            if($result>0){
-                                echo "<br>Upload image file Completed!!";
-                            }else{
-                                echo "<br>Upload image file incompleted";
-                            }
-                          }else{
-                              echo "<br>Upload file failed!!";
-                          }
+                           $folder = "infoSimOnline";
+                           $file_publicid = $infoId.$i;
+                           $tag = $title;
+                            $imageUrl = upload_image($files,$folder,$file_publicid,$tag);
+                            echo $imageUrl."<br>";
                         }
                     }
                 }else{
