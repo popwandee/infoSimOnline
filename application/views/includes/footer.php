@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
         <b>InfoSim</b> แผงการจัดการ | V1.0
     </div>
-    <strong>Copyright &copy; 2018-2019
+    <strong>Copyright &copy; 2018-2021
         <a href="<?php echo base_url(); ?>">InfoSim</a>
     </strong> สงวนลิขสิทธิ์.
 </footer>

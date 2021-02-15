@@ -130,7 +130,7 @@ class User extends BaseController
 
             if($result == true)
             {
-                $process = 'อัปเดตการตั้งค่าบัญชี';
+                $process = 'อัปเดตข้อมูลผู้ใช้ email=>'.$email.' name=>'.$name;
                 $processFunction = 'User/updateUser';
                 $this->logrecord($process,$processFunction);
 
@@ -194,7 +194,7 @@ class User extends BaseController
 
                 if($result > 0) {
 
-                    $process = 'เปลี่ยนรหัสผ่าน';
+                    $process = 'เปลี่ยนรหัสผ่าน updatedBy=> '.$this->vendorId;
                     $processFunction = 'User/changePassword';
                     $this->logrecord($process,$processFunction);
 
@@ -229,7 +229,7 @@ class User extends BaseController
             $result = $this->user_model->endTask($taskId, $taskInfo);
 
             if ($result > 0) {
-                 $process = 'หขส./ตขอ. เสร็จสิ้น';
+                 $process = 'ระบุค่า หขส./ตขอ. ว่าเสร็จสิ้น id=> '.$taskId;
                  $processFunction = 'User/endTask';
                  $this->logrecord($process,$processFunction);
                  $this->session->set_flashdata('success', 'หขส./ตขอ. สำเร็จลุล่วง');

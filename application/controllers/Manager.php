@@ -43,10 +43,6 @@ class Manager extends BaseController
     {
             $data['taskRecords'] = $this->user_model->getTasks();
 
-            $process = 'หขส./ตขอ. ทั้งหมด';
-            $processFunction = 'Manager/tasks';
-            $this->logrecord($process,$processFunction);
-
             $this->global['pageTitle'] = 'InfoSim : หขส./ตขอ. ทั้งหมด';
 
             $this->loadViews("tasks", $this->global, $data, NULL);
@@ -93,7 +89,7 @@ class Manager extends BaseController
 
                 if($result > 0)
                 {
-                    $process = 'เพิ่ม หขส./ตขอ. ใหม่';
+                    $process = 'เพิ่ม หขส./ตขอ. ใหม่ title => '.$title;
                     $processFunction = 'Manager/addNewTasks';
                     $this->logrecord($process,$processFunction);
 
@@ -159,7 +155,7 @@ class Manager extends BaseController
 
             if($result > 0)
             {
-                $process = 'แก้ไข หขส./ตขอ.';
+                $process = 'แก้ไข หขส./ตขอ. id =>'.$taskId;
                 $processFunction = 'Manager/editTask';
                 $this->logrecord($process,$processFunction);
                 $this->session->set_flashdata('success', 'แก้ไข หขส./ตขอ. สำเร็จ');
@@ -186,7 +182,7 @@ class Manager extends BaseController
             $result = $this->user_model->deleteTask($taskId);
 
             if ($result == TRUE) {
-                 $process = 'การลบ หขส./ตขอ.';
+                 $process = 'การลบ หขส./ตขอ. => '.$taskId;
                  $processFunction = 'Manager/deleteTask';
                  $this->logrecord($process,$processFunction);
 

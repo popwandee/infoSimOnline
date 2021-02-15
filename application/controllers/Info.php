@@ -75,7 +75,7 @@ class Info extends BaseController
             $this->loadViews("info/infoDetail", $this->global, $data, NULL);
         }
     /**
-     * This function used to load the first screen of the user
+     * This function used to autoload and refresh screen information
      */
     public function checker()
     {
@@ -89,11 +89,14 @@ class Info extends BaseController
     */
     function addNewInfoForm()
     {
+        if($this->isManagerOrAdmin() == TRUE)
+        {
            $data['infos_prioritys'] = $this->info_model->getInfosPrioritys();
 
            $this->global['pageTitle'] = 'InfoSim : เพิ่มงาน';
 
            $this->loadViews("info/addNewInfoForm", $this->global, $data, NULL);
+        }
     }
 
     /**
@@ -101,6 +104,8 @@ class Info extends BaseController
     */
     function addNewInfoToDB()
     {
+        if($this->isManagerOrAdmin() == TRUE)
+        {
            $this->load->library('form_validation');
            $this->form_validation->set_rules('infoId','ที่ของข่าว','required');
            $this->form_validation->set_rules('title','หัวเรื่องข่าว','required');
@@ -134,7 +139,9 @@ class Info extends BaseController
                            }else{
                              $imageUrl ="sample.jpg";
                            }
-                            echo $imageUrl."<br>";
+                            $process = 'Upload รูปภาพใหม่->'.$imageUrl;
+                            $processFunction = 'Info/addNewInfoToDB';
+                            $this->logrecord($process,$processFunction);
                         }
                     }
                 }else{
@@ -158,8 +165,8 @@ class Info extends BaseController
                $result = $this->info_model->addNewInfo($infoDetail);
                if($result > 0)
                {
-                   $process = 'เพิ่มข่าวใหม่';
-                   $processFunction = 'User/addNewInfos';
+                   $process = 'เพิ่มข่าวสารใหม่ infoId=>'.$infoId;
+                   $processFunction = 'User/addNewInfoToDB';
                    $this->logrecord($process,$processFunction);
 
                    $this->session->set_flashdata('success', 'เพิ่มข่าวสารสำเร็จแล้ว');
@@ -171,6 +178,7 @@ class Info extends BaseController
 
                redirect('addNewInfo');
            }
+        }
        }
 
        /**
@@ -268,8 +276,9 @@ class Info extends BaseController
 
             $infoDetail = array('statusId'=>0);
             $data['result'] = $this->info_model->deleteInfo($infoId,$infoDetail);
-
-            $this->global['pageTitle'] = 'InfoSim : ลบข่าวสาร';
+            $process = 'ลบข่าวสาร id->'.$infoId;
+            $processFunction = 'Info/deleteInfo';
+            $this->logrecord($process,$processFunction);
 
                 redirect('einfo');
     }
@@ -284,7 +293,9 @@ class Info extends BaseController
             }
 
             $data['result'] = $this->info_model->hardDeleteInfo($infoId);
-
+            $process = 'ลบข่าวสาร id->'.$infoId;
+            $processFunction = 'Info/hardDeleteInfo';
+            $this->logrecord($process,$processFunction);
             $this->global['pageTitle'] = 'InfoSim : ลบข่าวสาร';
 
                 redirect('einfo');

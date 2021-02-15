@@ -132,13 +132,13 @@
             <li class="treeview">
               <a href="<?php echo base_url(); ?>tasks">
                 <i class="fa fa-tasks"></i>
-                <span>งาน</span>
+                <span>หขส./ตขอ.</span>
               </a>
             </li>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>addNewTask">
                 <i class="fa fa-plus-circle"></i>
-                <span>เพิ่มงาน</span>
+                <span>เพิ่ม หขส./ตขอ.</span>
               </a>
             </li>
             <li class="treeview">
@@ -179,13 +179,13 @@
               <li class="treeview">
                 <a href="<?php echo base_url(); ?>log-history">
                   <i class="fa fa-archive"></i>
-                  <span>บันทึกประวัติ</span>
+                  <span>ประวัติการเข้าใช้งาน</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="<?php echo base_url(); ?>log-history-upload">
                   <i class="fa fa-upload"></i>
-                  <span>โหลดข้อมูลสำรอง</span>
+                  <span>อัพโหลดข้อมูลสำรอง</span>
                 </a>
               </li>
               <li class="treeview">
@@ -208,7 +208,7 @@
                   <li class="treeview">
                     <a href="<?php echo base_url(); ?>etasks">
                       <i class="fa fa-tasks"></i>
-                      <span>งาน</span>
+                      <span>หขส./ตขอ.</span>
                     </a>
                 </li>
                   <?php

@@ -54,10 +54,6 @@ class Admin extends BaseController
 
             $data['userRecords'] = $this->user_model->userListing($searchText, $returns["page"], $returns["segment"]);
 
-            $process = 'รายชื่อผู้ใช้ ';
-            $processFunction = 'Admin/userListing';
-            $this->logrecord($process,$processFunction);
-
             $this->global['pageTitle'] = 'InfoSim : รายการผู้ใช้ ';
 
             $this->loadViews("users", $this->global, $data, NULL);
@@ -109,7 +105,7 @@ class Admin extends BaseController
 
                 if($result > 0)
                 {
-                    $process = 'เพิ่มผู้ใช้';
+                    $process = 'เพิ่มผู้ใช้ email=> '.$email;
                     $processFunction = 'Admin/addNewUser';
                     $this->logrecord($process,$processFunction);
 
@@ -190,7 +186,7 @@ class Admin extends BaseController
 
                 if($result == true)
                 {
-                    $process = 'อัพเดตผู้ใช้';
+                    $process = 'อัพเดตผู้ใช้ email => '.$email;
                     $processFunction = 'Admin/editUser';
                     $this->logrecord($process,$processFunction);
 
@@ -219,7 +215,7 @@ class Admin extends BaseController
             if ($result > 0) {
                  echo(json_encode(array('status'=>TRUE)));
 
-                 $process = 'การลบผู้ใช้';
+                 $process = 'การลบผู้ใช้=> '.$userId;
                  $processFunction = 'Admin/deleteUser';
                  $this->logrecord($process,$processFunction);
 
@@ -242,11 +238,7 @@ class Admin extends BaseController
             }
             $data['userRecords'] = $this->user_model->logHistory($userId);
 
-            $process = 'Log History';
-            $processFunction = 'Admin/logHistory';
-            $this->logrecord($process,$processFunction);
-
-            $this->global['pageTitle'] = 'InfoSim : ประวัติการเข้าสู่ระบบ ผู้ใช้ ';
+            $this->global['pageTitle'] = 'InfoSim : ประวัติการเข้าสู่ระบบ ของผู้ใช้งาน ';
 
             $this->loadViews("logHistory", $this->global, $data, NULL);
     }
@@ -261,11 +253,7 @@ class Admin extends BaseController
             $data["userInfo"] = $this->user_model->getUserInfoById($userId);
             $data['userRecords'] = $this->user_model->logHistory($userId);
 
-            $process = 'การแสดงบันทึกเดี่ยว';
-            $processFunction = 'Admin/logHistorysingle';
-            $this->logrecord($process,$processFunction);
-
-            $this->global['pageTitle'] = 'InfoSim : ประวัติการเข้าสู่ระบบผู้ใช้ ';
+            $this->global['pageTitle'] = 'InfoSim : ประวัติการเข้าสู่ระบบ รายบุคคล ';
 
             $this->loadViews("logHistorysingle", $this->global, $data, NULL);
     }
@@ -316,11 +304,7 @@ class Admin extends BaseController
             }
             $data['userRecords'] = $this->user_model->logHistoryBackup();
 
-            $process = 'การดูบันทึกการสำรองข้อมูล';
-            $processFunction = 'Admin/logHistoryBackup';
-            $this->logrecord($process,$processFunction);
-
-            $this->global['pageTitle'] = 'InfoSim : ผู้ใช้ ประวัติการเข้าสู่ระบบสำรอง';
+            $this->global['pageTitle'] = 'InfoSim : สำรองข้อมูล ประวัติการเข้าสู่ระบบ';
 
             $this->loadViews("logHistoryBackup", $this->global, $data, NULL);
     }
@@ -358,7 +342,7 @@ class Admin extends BaseController
             $processFunction = 'Admin/logHistoryUpload';
             $this->logrecord($process,$processFunction);
 
-            $this->global['pageTitle'] = 'InfoSim : ผู้ใช้ อัปโหลดเข้าสู่ระบบ';
+            $this->global['pageTitle'] = 'InfoSim : อัปโหลดบันทึกการสำรองข้อมูล';
 
             $this->loadViews("logHistoryUpload", $this->global, $data, NULL);
     }
