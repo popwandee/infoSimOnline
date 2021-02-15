@@ -89,14 +89,16 @@ class Info extends BaseController
     */
     function addNewInfoForm()
     {
-        if($this->isManagerOrAdmin() == TRUE)
+        if ($this->role == ROLE_ADMIN || $this->role == ROLE_MANAGER)
         {
            $data['infos_prioritys'] = $this->info_model->getInfosPrioritys();
 
-           $this->global['pageTitle'] = 'InfoSim : เพิ่มงาน';
+           $this->global['pageTitle'] = 'InfoSim : เพิ่มข่าวสาร';
 
            $this->loadViews("info/addNewInfoForm", $this->global, $data, NULL);
-        }
+       }else{
+           echo "not Manager or Admin";
+       }
     }
 
     /**
@@ -104,7 +106,10 @@ class Info extends BaseController
     */
     function addNewInfoToDB()
     {
-        if($this->isManagerOrAdmin() == TRUE)
+        if ($this->role == ROLE_ADMIN || $this->role == ROLE_MANAGER) 
+        {
+            echo "Not Manager or Admin";
+        }else
         {
            $this->load->library('form_validation');
            $this->form_validation->set_rules('infoId','ที่ของข่าว','required');
