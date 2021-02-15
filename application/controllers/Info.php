@@ -18,7 +18,7 @@ require 'assets/plugins/cloudinary/cloudinary_php/src/Api.php';
  * @version : 1.0
  * @since : 27.02.2018
  */
-class Info extends CI_Controller
+class Info extends BaseController
 {
     /**
      * This is default constructor of the class
@@ -89,17 +89,13 @@ class Info extends CI_Controller
     */
     function addNewInfoForm()
     {
-        if ($this->role != ROLE_ADMIN || $this->role != ROLE_MANAGER)
-        {
-            echo "not Manager or Admin";
-            redirect('einfo');
-        }else{
+
            $data['infos_prioritys'] = $this->info_model->getInfosPrioritys();
 
            $this->global['pageTitle'] = 'InfoSim : เพิ่มข่าวสาร';
 
            $this->loadViews("info/addNewInfoForm", $this->global, $data, NULL);
-       }
+
     }
 
     /**
@@ -107,12 +103,7 @@ class Info extends CI_Controller
     */
     function addNewInfoToDB()
     {
-        if ($this->role != ROLE_ADMIN || $this->role != ROLE_MANAGER)
-        {
-            echo "Not Manager or Admin";
-            redirect('einfo');
-        }else
-        {
+
            $this->load->library('form_validation');
            $this->form_validation->set_rules('infoId','ที่ของข่าว','required');
            $this->form_validation->set_rules('title','หัวเรื่องข่าว','required');
@@ -185,7 +176,7 @@ class Info extends CI_Controller
 
                redirect('addNewInfo');
            }
-        }
+
        }
 
        /**
