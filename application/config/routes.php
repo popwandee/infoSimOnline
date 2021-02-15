@@ -6,6 +6,13 @@ $route['default_controller'] = "login";
 $route['404_override'] = 'login/error';
 
 
+
+/*********** PROJECT DEFINED ROUTES *******************/
+
+$route['project'] = 'project/index';
+$route['propose'] = 'project/propose';
+$route['HOWTO'] = 'project/howto';
+
 /*********** USER DEFINED ROUTES *******************/
 
 $route['loginMe'] = 'login/loginMe';
