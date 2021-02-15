@@ -18,7 +18,7 @@ require 'assets/plugins/cloudinary/cloudinary_php/src/Api.php';
  * @version : 1.0
  * @since : 27.02.2018
  */
-class Info extends BaseController
+class Info extends CI_Controller
 {
     /**
      * This is default constructor of the class
