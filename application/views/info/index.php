@@ -18,10 +18,12 @@
   </section>
   <section class="content">
     <div class="col-xs-12">
+        <!--
       <div class="text-right">
         <a class="btn btn-primary" href="<?php echo base_url(); ?>addNewInfo">
           <i class="fa fa-plus"></i> เพิ่มรายงานข่าวสาร</a>
       </div>
+  -->
       <div class="box">
         <div class="box-header">
           <div class="box-tools">
