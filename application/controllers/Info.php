@@ -216,7 +216,7 @@ class Info extends BaseController
     /**
      * This function is used to finish tasks.
      */
-    function readInfo($infoId)
+    function operateInfo($infoId)
     {
             $readInfo = array('statusId'=>2,'endDtm'=>date('Y-m-d H:i:s'));
 

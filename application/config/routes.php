@@ -5,8 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = "login";
 $route['404_override'] = 'login/error';
 
-
-
 /*********** PROJECT DEFINED ROUTES *******************/
 
 $route['project'] = 'project/index';
@@ -45,11 +43,16 @@ $route['addNewTasks'] = "manager/addNewTasks";
 $route['editOldTask/(:num)'] = "manager/editOldTask/$1";
 $route['editTask'] = "manager/editTask";
 $route['deleteTask/(:num)'] = "manager/deleteTask/$1";
-$route['manageInfo'] = "manager/manageInfo";
 
-//$route['info'] = "info/infos";
-//$route['addNewInfo'] = "info/addNewInfo";
-//$route['addNewInfos'] = "info/addNewInfos";
+$route['manageInfo'] = "manager/manageInfo";
+$route['mInfoDetail/(:num)'] = "manager/mInfoDetail/$1";
+$route['mAddNewInfoForm'] = "manager/mAddNewInfoForm";
+$route['mAddNewInfoToDB'] = "manager/mAddNewInfoToDB";
+$route['mOperateInfo/(:num)'] = "manager/mOperateInfo/$1";
+$route['mEditOldInfo/(:num)'] = "manager/mEditOldInfo/$1";
+$route['mDeleteInfo/(:num)'] = "manager/mDeleteInfo/$1";
+$route['mHardDeleteInfo/(:num)'] = "manager/mHardDeleteInfo/$1";
+
 /*********** USER CONTROLLER ROUTES *******************/
 $route['loadChangePass'] = "user/loadChangePass";
 $route['changePassword'] = "user/changePassword";
@@ -64,10 +67,11 @@ $route['einfo'] = "info/index";
 $route['allInfos'] = "info/allInfos";
 $route['infoDetail/(:num)'] = "info/infoDetail/$1";
 $route['checker'] = "info/checker";
-//$route['checker/(:num)'] = "info/checker/$1";
+
 $route['addNewInfo'] = "info/addNewInfoForm";
 $route['addNewInfos'] = "info/addNewInfoToDB";
 $route['uploadFile'] = "info/uploadFile";
+$route['operateInfo/(:num)'] = "info/operateInfo/$1";
 $route['editOldInfo/(:num)'] = "info/editOldInfo/$1";
 $route['deleteInfo/(:num)'] = "info/deleteInfo/$1";
 
