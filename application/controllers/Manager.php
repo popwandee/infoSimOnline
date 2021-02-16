@@ -1,6 +1,8 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require APPPATH . '/libraries/BaseController.php';
+
+require APPPATH . '/libraries/CloudinaryConfig.php';
 /**
  * Class : Manager (ManagerController)
  * Manager class to control to authenticate manager credentials and include manager functions.
