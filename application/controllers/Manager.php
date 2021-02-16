@@ -100,7 +100,7 @@ class Manager extends BaseController
                     $this->session->set_flashdata('error', 'การสร้าง หขส./ตขอ. ล้มเหลว');
                 }
 
-                redirect('addNewTask');
+                redirect('ddNewTask');
             }
         }
 
@@ -204,7 +204,7 @@ class Manager extends BaseController
 
         $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมด';
 
-        $this->loadViews("info/infoListAll", $this->global, $data, NULL);
+        $this->loadViews("manager/infoListAll", $this->global, $data, NULL);
     }
 
     /**
@@ -224,7 +224,7 @@ class Manager extends BaseController
 
         $this->global['pageTitle'] = 'InfoSim : อ่านข่าว';
 
-        $this->loadViews("info/infoDetail", $this->global, $data, NULL);
+        $this->loadViews("manager/infoDetail", $this->global, $data, NULL);
     }
     /**
      * This function used to autoload and refresh screen information
@@ -246,7 +246,7 @@ class Manager extends BaseController
 
            $this->global['pageTitle'] = 'InfoSim : เพิ่มข่าวสาร';
 
-           $this->loadViews("info/addNewInfoForm", $this->global, $data, NULL);
+           $this->loadViews("manager/addNewInfoForm", $this->global, $data, NULL);
 
     }
 
@@ -290,7 +290,7 @@ class Manager extends BaseController
                              $imageUrl ="sample.jpg";
                            }
                             $process = 'Upload รูปภาพใหม่->'.$imageUrl;
-                            $processFunction = 'Info/addNewInfoToDB';
+                            $processFunction = 'manager/mAddNewInfoToDB';
                             $this->logrecord($process,$processFunction);
                         }
                     }
@@ -316,7 +316,7 @@ class Manager extends BaseController
                if($result > 0)
                {
                    $process = 'เพิ่มข่าวสารใหม่ infoId=>'.$infoId;
-                   $processFunction = 'User/addNewInfoToDB';
+                   $processFunction = 'Manager/mAddNewInfoToDB';
                    $this->logrecord($process,$processFunction);
 
                    $this->session->set_flashdata('success', 'เพิ่มข่าวสารสำเร็จแล้ว');
@@ -326,7 +326,7 @@ class Manager extends BaseController
                    $this->session->set_flashdata('error', 'การเพิ่มข่าวสารล้มเหลว');
                }
 
-               redirect('addNewInfo');
+               redirect('mAddNewInfo');
            }
 
        }
@@ -341,7 +341,7 @@ class Manager extends BaseController
 
                if ($result > 0) {
                     $process = 'อ่านข่าวสารแล้ว';
-                    $processFunction = 'Info/readInfo';
+                    $processFunction = 'Manager/mReadInfo';
                     $this->logrecord($process,$processFunction);
                     $this->session->set_flashdata('success', 'อ่านข่าวสารแล้ว');
                     if ($this->role != ROLE_EMPLOYEE){
@@ -394,7 +394,7 @@ class Manager extends BaseController
 
                $this->global['pageTitle'] = 'InfoSim : แก้ไขข่าวสาร';
 
-               $this->loadViews("info/editOldInfo", $this->global, $data, NULL);
+               $this->loadViews("manager/mEditOldInfo", $this->global, $data, NULL);
        }
        /**
         * This function is used to open delete info view
@@ -409,7 +409,7 @@ class Manager extends BaseController
                $infoDetail = array('statusId'=>0);
                $data['result'] = $this->info_model->deleteInfo($infoId,$infoDetail);
                $process = 'ลบข่าวสาร id->'.$infoId;
-               $processFunction = 'Info/deleteInfo';
+               $processFunction = 'Manager/mDeleteInfo';
                $this->logrecord($process,$processFunction);
 
                    redirect('einfo');
