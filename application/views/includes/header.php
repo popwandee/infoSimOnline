@@ -148,9 +148,9 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>viewInfo">
+              <a href="<?php echo base_url(); ?>userViewInfo">
                 <i class="fa fa-tasks"></i>
-                <span>ข่าวสารที่ผู้รับการฝึกได้รับ</span>
+                <span>มุมมองข่าวสารที่ User เห็น</span>
               </a>
             </li>
             <li class="treeview">

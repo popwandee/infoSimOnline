@@ -213,7 +213,7 @@ class Manager extends BaseController
      */
     public function userViewInfo()
     {
-        $data['infoRecords'] = $this->info_model->getInfos();
+        $data['infoRecords'] = $this->info_model->getUserViewInfos();
 
         $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมดในมุมมองผู้ใช้';
 

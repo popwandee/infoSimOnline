@@ -118,12 +118,13 @@ class Info_model extends CI_Model
          * @param number $userId : This is user id
          * @return array $result : This is user information
          */
-        function getInfos()
+        function getUserViewInfos()
         {
             $this->db->select('*');
             $this->db->from('tbl_infos');
             $this->db->where('isDeleted', 0);
-            $this->db->where('tbl_infos.statusId',1);
+            $this->db->where('tbl_infos.statusId >',0);
+            $this->db->where('tbl_infos.statusId <',3);
             $query = $this->db->get();
 
             return $query->result();

@@ -27,7 +27,7 @@ class Info extends BaseController
      */
     public function index()
     {
-        $data['infoRecords'] = $this->info_model->getInfos();
+        $data['infoRecords'] = $this->info_model->getUserViewInfos();
 
         $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมด';
 
