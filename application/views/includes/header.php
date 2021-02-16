@@ -154,7 +154,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>manager/mAddNewInfo">
+              <a href="<?php echo base_url(); ?>mAddNewInfo">
                 <i class="fa fa-plus-circle"></i>
                 <span>เพิ่มข่าวสาร</span>
               </a>
