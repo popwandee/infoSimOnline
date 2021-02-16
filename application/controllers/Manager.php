@@ -211,13 +211,13 @@ class Manager extends BaseController
     /**
      * This function used to load the first screen of the user
      */
-    public function viewInfo()
+    public function userViewInfo()
     {
         $data['infoRecords'] = $this->info_model->getInfos();
 
         $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมดในมุมมองผู้ใช้';
 
-        $this->loadViews("manager/viewInfo", $this->global, $data, NULL);
+        $this->loadViews("manager/index", $this->global, $data, NULL);
     }
     /**
      * This function used to load the first screen of the user

@@ -45,7 +45,7 @@ $route['editTask'] = "manager/editTask";
 $route['deleteTask/(:num)'] = "manager/deleteTask/$1";
 
 $route['manageInfo'] = "manager/manageInfo";
-$route['viewInfo'] = "manager/viewInfo";
+$route['viewInfo'] = "manager/userViewInfo";
 $route['mInfoDetail/(:num)'] = "manager/mInfoDetail/$1";
 $route['mAddNewInfo'] = "manager/mAddNewInfoForm";
 $route['mAddNewInfos'] = "manager/mAddNewInfoToDB";
