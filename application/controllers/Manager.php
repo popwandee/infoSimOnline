@@ -236,7 +236,7 @@ class Manager extends BaseController
 
         $this->global['pageTitle'] = 'InfoSim : อ่านข่าว';
 
-        $this->loadViews("manager/infoDetail", $this->global, $data, NULL);
+        $this->loadViews("manager/viewInfo", $this->global, $data, NULL);
     }
     /**
      * This function used to autoload and refresh screen information
