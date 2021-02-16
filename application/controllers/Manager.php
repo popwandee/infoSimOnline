@@ -206,7 +206,17 @@ class Manager extends BaseController
 
         $this->loadViews("manager/infoListAll", $this->global, $data, NULL);
     }
+    /**
+     * This function used to load the first screen of the user
+     */
+    public function viewInfo()
+    {
+        $data['infoRecords'] = $this->info_model->getInfos();
 
+        $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมดในมุมมองผู้ใช้';
+
+        $this->loadViews("manager/infoListAll", $this->global, $data, NULL);
+    }
     /**
      * This function used to load the first screen of the user
      */
@@ -364,7 +374,7 @@ class Manager extends BaseController
        /**
         * This function is used to open delete info view
         */
-       function operateInfo($infoId = NULL)
+       function mOperateInfo($infoId = NULL)
        {
                if($infoId == null)
                {

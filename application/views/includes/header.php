@@ -148,7 +148,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>manager/index">
+              <a href="<?php echo base_url(); ?>viewInfo">
                 <i class="fa fa-tasks"></i>
                 <span>ข่าวสารที่ผู้รับการฝึกได้รับ</span>
               </a>
