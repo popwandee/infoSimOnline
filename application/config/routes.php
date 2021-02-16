@@ -50,6 +50,7 @@ $route['mInfoDetail/(:num)'] = "manager/mInfoDetail/$1";
 $route['mAddNewInfo'] = "manager/mAddNewInfoForm";
 $route['mAddNewInfos'] = "manager/mAddNewInfoToDB";
 $route['mOperateInfo/(:num)'] = "manager/mOperateInfo/$1";
+$route['mchecker'] = "manager/mChecker";
 $route['mEditOldInfo/(:num)'] = "manager/mEditOldInfo/$1";
 $route['mDeleteInfo/(:num)'] = "manager/mDeleteInfo/$1";
 $route['mHardDeleteInfo/(:num)'] = "manager/mHardDeleteInfo/$1";
