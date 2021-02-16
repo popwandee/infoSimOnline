@@ -2,7 +2,7 @@
 
 require APPPATH . '/libraries/BaseController.php';
 
-require APPPATH . '/libraries/CloudinaryConfig.php';
+require APPPATH . '/config/CloudinaryConfig.php';
 /**
  * Class : Manager (ManagerController)
  * Manager class to control to authenticate manager credentials and include manager functions.

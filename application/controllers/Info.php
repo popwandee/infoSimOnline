@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require APPPATH . '/libraries/BaseController.php';
-require APPPATH . '/libraries/CloudinaryConfig.php';
+require APPPATH . '/config/CloudinaryConfig.php';
 /**
  * Class : User (UserController)
  * User Class to control all user related operations.
