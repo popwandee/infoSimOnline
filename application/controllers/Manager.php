@@ -333,7 +333,7 @@ class Manager extends BaseController
        /**
         * This function is used to finish tasks.
         */
-       function mOperateInfo($infoId)
+       function mReadInfo($infoId)
        {
                $readInfo = array('statusId'=>2,'endDtm'=>date('Y-m-d H:i:s'));
 
@@ -360,6 +360,23 @@ class Manager extends BaseController
                        redirect('etasks');
                     }
                }
+       }
+       /**
+        * This function is used to open delete info view
+        */
+       function operateInfo($infoId = NULL)
+       {
+               if($infoId == null)
+               {
+                   redirect('einfo');
+               }
+
+               $infoDetail = array('statusId'=>3);
+               $data['result'] = $this->info_model->deleteInfo($infoId,$infoDetail);
+
+               $this->global['pageTitle'] = 'InfoSim : ลบข่าวสาร';
+
+                   redirect('einfo');
        }
        /**
         * This function is used to open edit info view
