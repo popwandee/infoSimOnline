@@ -46,7 +46,7 @@ $route['deleteTask/(:num)'] = "manager/deleteTask/$1";
 
 $route['manageInfo'] = "manager/manageInfo";
 $route['mInfoDetail/(:num)'] = "manager/mInfoDetail/$1";
-$route['mAddNewInfoForm'] = "manager/mAddNewInfoForm";
+$route['mAddNewInfo'] = "manager/mAddNewInfoForm";
 $route['mAddNewInfoToDB'] = "manager/mAddNewInfoToDB";
 $route['mOperateInfo/(:num)'] = "manager/mOperateInfo/$1";
 $route['mEditOldInfo/(:num)'] = "manager/mEditOldInfo/$1";
