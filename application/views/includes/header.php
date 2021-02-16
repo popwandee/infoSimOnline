@@ -148,13 +148,13 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>info/index">
+              <a href="<?php echo base_url(); ?>manager/index">
                 <i class="fa fa-tasks"></i>
                 <span>ข่าวสารที่ผู้รับการฝึกได้รับ</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>info/addNewInfo">
+              <a href="<?php echo base_url(); ?>manager/mAddNewInfo">
                 <i class="fa fa-plus-circle"></i>
                 <span>เพิ่มข่าวสาร</span>
               </a>
@@ -182,6 +182,7 @@
                   <span>ประวัติการเข้าใช้งาน</span>
                 </a>
               </li>
+              <!--
               <li class="treeview">
                 <a href="<?php echo base_url(); ?>log-history-upload">
                   <i class="fa fa-upload"></i>
@@ -194,6 +195,7 @@
                   <span>สำรองข้อมูลบันทึก</span>
                 </a>
               </li>
+          -->
               <?php
             }
             if($role == ROLE_EMPLOYEE)
