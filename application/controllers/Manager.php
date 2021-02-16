@@ -206,7 +206,7 @@ class Manager extends BaseController
 
         $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมด';
 
-        $this->loadViews("manager/infoListAll", $this->global, $data, NULL);
+        $this->loadViews("manager/manageInfo", $this->global, $data, NULL);
     }
     /**
      * This function used to load the first screen of the user
@@ -217,7 +217,7 @@ class Manager extends BaseController
 
         $this->global['pageTitle'] = 'InfoSim : ข่าวสารทั้งหมดในมุมมองผู้ใช้';
 
-        $this->loadViews("manager/infoListAll", $this->global, $data, NULL);
+        $this->loadViews("manager/viewInfo", $this->global, $data, NULL);
     }
     /**
      * This function used to load the first screen of the user
