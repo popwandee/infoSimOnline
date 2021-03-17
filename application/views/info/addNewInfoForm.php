@@ -3,12 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- Bootstrap 3.3.4 -->
+  <link href="<?php echo base_url(); ?>assetse/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!-- FontAwesome 4.3.0 -->
+  <link href="<?php echo base_url(); ?>assetse/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url(); ?>assets/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+  <script src="<?php echo base_url(); ?>assets/js/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
 
 </head>
 <body>
@@ -48,7 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="title">หัวเรื่อง</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('title'); ?>" id="title" name="title">
+                                        <input type="text" class="form-control required" value="<?php echo set_value('title'); ?>" id="title" name="title" placeholder="หัวเรื่อง">
                                     </div>
                                 </div>
                                 <div class="col-md-4">

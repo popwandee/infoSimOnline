@@ -44,6 +44,13 @@ $route['editOldTask/(:num)'] = "manager/editOldTask/$1";
 $route['editTask'] = "manager/editTask";
 $route['deleteTask/(:num)'] = "manager/deleteTask/$1";
 
+$route['metls'] = "manager/metls";
+$route['addNewMetlForm'] = "manager/addNewMetlForm";
+$route['addNewMetl'] = "manager/addNewMetl";
+$route['editOldMetl/(:num)'] = "manager/editOldMetl/$1";
+$route['editMetl'] = "manager/editMetl";
+$route['deleteMetl/(:num)'] = "manager/deleteMetl/$1";
+
 $route['manageInfo'] = "manager/manageInfo";
 $route['userViewInfo'] = "manager/userViewInfo";
 $route['mInfoDetail/(:num)'] = "manager/mInfoDetail/$1";

@@ -129,6 +129,14 @@
             if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
             {
             ?>
+<!--
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>metls">
+                <i class="fa fa-tasks"></i>
+                <span>รกสภ. METL</span>
+              </a>
+            </li>
+        -->
             <li class="treeview">
               <a href="<?php echo base_url(); ?>tasks">
                 <i class="fa fa-tasks"></i>

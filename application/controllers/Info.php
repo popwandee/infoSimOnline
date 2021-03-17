@@ -235,6 +235,20 @@ class Info extends BaseController
                  }
             }
     }
+    function mOperateInfo($infoId = NULL)
+    {
+            if($infoId == null)
+            {
+                redirect('einfo');
+            }
+
+            $infoDetail = array('statusId'=>3);
+            $data['result'] = $this->info_model->deleteInfo($infoId,$infoDetail);
+
+            $this->global['pageTitle'] = 'InfoSim : ลบข่าวสาร';
+
+                redirect('einfo');
+    }
     /**
      * This function is used to open edit info view
      */

@@ -20,6 +20,7 @@ class Manager extends BaseController
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('info_model');
+        $this->load->model('metl_model');
         // Datas -> libraries ->BaseController / This function used load user sessions
         $this->datas();
         // isLoggedIn / Login control function /  This function used login control
@@ -102,7 +103,7 @@ class Manager extends BaseController
                     $this->session->set_flashdata('error', 'การสร้าง หขส./ตขอ. ล้มเหลว');
                 }
 
-                redirect('ddNewTask');
+                redirect('addNewTask');
             }
         }
 
@@ -226,7 +227,7 @@ class Manager extends BaseController
     {
         if($infoId == null)
         {
-            redirect('einfo');
+            redirect('manageInfo');
         }
 
         $data['infoDetail'] = $this->info_model->getInfoDetail($infoId);
@@ -357,7 +358,7 @@ class Manager extends BaseController
                     $this->logrecord($process,$processFunction);
                     $this->session->set_flashdata('success', 'อ่านข่าวสารแล้ว');
                     if ($this->role != ROLE_EMPLOYEE){
-                       redirect('einfo');
+                       redirect('manageInfo');
                     }
                     else{
                        redirect('einfo');
@@ -380,7 +381,7 @@ class Manager extends BaseController
        {
                if($infoId == null)
                {
-                   redirect('einfo');
+                   redirect('manageInfo');
                }
 
                $infoDetail = array('statusId'=>3);
@@ -388,7 +389,7 @@ class Manager extends BaseController
 
                $this->global['pageTitle'] = 'InfoSim : ลบข่าวสาร';
 
-                   redirect('einfo');
+                   redirect('manageInfo');
        }
        /**
         * This function is used to open edit info view
@@ -397,10 +398,10 @@ class Manager extends BaseController
        {
                if($infoId == null)
                {
-                   redirect('einfo');
+                   redirect('manageInfo');
                }
 
-               $data['infoDetail'] = $this->info_model->getInfos($infoId);
+               $data['infoDetail'] = $this->info_model->getInfoDetail($infoId);
                $data['infosPrioritys'] = $this->info_model->getInfosPrioritys();
                $data['infosStatus'] = $this->info_model->getInfosStatus();
 
@@ -415,7 +416,7 @@ class Manager extends BaseController
        {
                if($infoId == null)
                {
-                   redirect('einfo');
+                   redirect('manageInfo');
                }
 
                $infoDetail = array('statusId'=>0);
@@ -424,7 +425,7 @@ class Manager extends BaseController
                $processFunction = 'Manager/mDeleteInfo';
                $this->logrecord($process,$processFunction);
 
-                   redirect('einfo');
+                   redirect('manageInfo');
        }
        /**
         * This function is used to open edit info view
@@ -433,7 +434,7 @@ class Manager extends BaseController
        {
                if($infoId == null)
                {
-                   redirect('einfo');
+                   redirect('manageInfo');
                }
 
                $data['result'] = $this->info_model->hardDeleteInfo($infoId);
@@ -442,6 +443,165 @@ class Manager extends BaseController
                $this->logrecord($process,$processFunction);
                $this->global['pageTitle'] = 'InfoSim : ลบข่าวสาร';
 
-                   redirect('einfo');
+                   redirect('manageInfo');
        }
+
+       /**
+       * This function used to show tasks
+       */
+      function metls()
+      {
+              $data['taskRecords'] = $this->metl_model->getAllMetl();
+
+              $this->global['pageTitle'] = 'InfoSim : หขส./ตขอ. ทั้งหมด';
+
+              $this->loadViews("metl/index", $this->global, $data, NULL);
+      }
+
+      /**
+       * This function is used to load the add new task
+       */
+      function addNewMetlForm()
+      {
+              //$data['tasks_prioritys'] = $this->user_model->getTasksPrioritys();
+
+              $this->global['pageTitle'] = 'InfoSim : เพิ่ม หขส./ตขอ.';
+
+              $this->loadViews("addNewMetlForm", $this->global, $data, NULL);
+      }
+
+       /**
+       * This function is used to add new task to the system
+       */
+      function addNewMetl()
+      {
+              $this->load->library('form_validation');
+
+              $this->form_validation->set_rules('fname','ชื่อ หขส./ตขอ.','required');
+              $this->form_validation->set_rules('priority','ลำดับความสำคัญ','required');
+
+              if($this->form_validation->run() == FALSE)
+              {
+                  $this->addNewMetlForm();
+              }
+              else
+              {
+                  $title = $this->input->post('fname');
+                  $comment = $this->input->post('comment');
+                  $priorityId = $this->input->post('priority');
+                  $statusId = 1;
+                  $permalink = sef($title);
+
+                  $taskInfo = array('title'=>$title, 'comment'=>$comment, 'priorityId'=>$priorityId, 'statusId'=> $statusId,
+                                      'permalink'=>$permalink, 'createdBy'=>$this->vendorId, 'createdDtm'=>date('Y-m-d H:i:s'));
+
+                  $result = $this->user_model->addNewTasks($taskInfo);
+
+                  if($result > 0)
+                  {
+                      $process = 'เพิ่ม หขส./ตขอ. ใหม่ title => '.$title;
+                      $processFunction = 'Manager/addNewTasks';
+                      $this->logrecord($process,$processFunction);
+
+                      $this->session->set_flashdata('success', 'สร้าง หขส./ตขอ. สำเร็จแล้ว');
+                  }
+                  else
+                  {
+                      $this->session->set_flashdata('error', 'การสร้าง หขส./ตขอ. ล้มเหลว');
+                  }
+
+                  redirect('addNewMetl');
+              }
+          }
+
+      /**
+       * This function is used to open edit tasks view
+       */
+      function editOldMetl($id = NULL)
+      {
+              if($id == null)
+              {
+                  redirect('metls');
+              }
+
+              //$data['taskInfo'] = $this->user_model->getTaskInfo($taskId);
+             // $data['tasks_prioritys'] = $this->user_model->getTasksPrioritys();
+             // $data['tasks_situations'] = $this->user_model->getTasksSituations();
+
+              $this->global['pageTitle'] = 'InfoSim : แก้ไข หขส./ตขอ.';
+
+              $this->loadViews("editOldMetl", $this->global, $data, NULL);
+      }
+
+      /**
+       * This function is used to edit tasks
+       */
+      function editMetl()
+      {
+          $this->load->library('form_validation');
+
+          $this->form_validation->set_rules('fname','ชื่อเรื่อง หขส./ตขอ.','required');
+          $this->form_validation->set_rules('priority','ลำดับความสำคัญ','required');
+
+          $taskId = $this->input->post('taskId');
+
+          if($this->form_validation->run() == FALSE)
+          {
+              $this->editOldTask($taskId);
+          }
+          else
+          {
+              $taskId = $this->input->post('taskId');
+              $title = $this->input->post('fname');
+              $comment = $this->input->post('comment');
+              $priorityId = $this->input->post('priority');
+              $statusId = $this->input->post('status');
+              $permalink = sef($title);
+
+              $taskInfo = array('title'=>$title, 'comment'=>$comment, 'priorityId'=>$priorityId, 'statusId'=> $statusId,
+                                  'permalink'=>$permalink);
+
+              $result = $this->user_model->editTask($taskInfo,$taskId);
+
+              if($result > 0)
+              {
+                  $process = 'แก้ไข หขส./ตขอ. id =>'.$taskId;
+                  $processFunction = 'Manager/editTask';
+                  $this->logrecord($process,$processFunction);
+                  $this->session->set_flashdata('success', 'แก้ไข หขส./ตขอ. สำเร็จ');
+              }
+              else
+              {
+                  $this->session->set_flashdata('error', 'การแก้ไข หขส./ตขอ. ล้มเหลว');
+              }
+              redirect('tasks');
+
+              }
+      }
+
+      /**
+       * This function is used to delete tasks
+       */
+      function deleteMetl($taskId = NULL)
+      {
+          if($taskId == null)
+              {
+                  redirect('tasks');
+              }
+
+              $result = $this->user_model->deleteTask($taskId);
+
+              if ($result == TRUE) {
+                   $process = 'การลบ หขส./ตขอ. => '.$taskId;
+                   $processFunction = 'Manager/deleteTask';
+                   $this->logrecord($process,$processFunction);
+
+                   $this->session->set_flashdata('success', 'ลบ หขส./ตขอ. สำเร็จ');
+                  }
+              else
+              {
+                  $this->session->set_flashdata('error', 'การลบ หขส./ตขอ. ล้มเหลว');
+              }
+              redirect('tasks');
+      }
 }

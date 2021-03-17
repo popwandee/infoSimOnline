@@ -21,7 +21,7 @@
     <section class="content-header">
         <h1>
             <i class="fa fa-users"></i> การจัดการข่าวสาร
-            <small>เพิ่ม / แก้ไขข่าวสาร</small>
+            <small>เพิ่ม / แก้ไข รายการกิจเฉพาะสำคัญยิ่งต่อภารกิจ</small>
         </h1>
     </section>
     <section class="content">
@@ -34,12 +34,12 @@
 
 
                     <div class="box-header">
-                        <h3 class="box-title">ป้อนข้อมูลข่าวสาร</h3>
+                        <h3 class="box-title">รายการกิจเฉพาะสำคัญยิ่งต่อภารกิจ</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addNewInfo" action="<?php echo base_url() ?>mAddNewInfos" method="post" role="form" enctype="multipart/form-data">
+                    <form role="form" id="addNewInfo" action="<?php echo base_url() ?>addNewInfos" method="post" role="form" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-2">
@@ -51,7 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="title">หัวเรื่อง</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('title'); ?>" id="title" name="title">
+                                        <input type="text" class="form-control required" value="<?php echo set_value('title'); ?>" id="title" name="title" placeholder="หัวเรื่อง">
                                     </div>
                                 </div>
                                 <div class="col-md-4">

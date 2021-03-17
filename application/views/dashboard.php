@@ -84,6 +84,9 @@
   </section>
 
   <div class="container">
+<?php
+echo base_url(); 
+?>
 
           <dl class="row">
           <dt class="col-sm-3">ชื่อโปรแกรม</dt>

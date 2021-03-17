@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>InfoSim | แผงการจัดการ Giriş</title>
+  <title>InfoSim | แผงการจัดการ</title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"
-  />
+  <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+  <script src="<?php echo base_url(); ?>assets/js/jquery-3.5.1.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,7 +18,6 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body class="login-page">
   <div class="login-box">
     <div class="login-logo">
@@ -83,13 +83,11 @@
         <a href="<?php echo base_url() ?>forgotPassword">ฉันลืมรหัสผ่าน</a>
         <br>
 
+        <?php echo base_url(); ?>
     </div>
     <!-- /.login-box-body -->
   </div>
   <!-- /.login-box -->
-
-  <script src="<?php echo base_url(); ?>assets/js/jquery-3.5.1.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 
 </html>
