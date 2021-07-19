@@ -11,11 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 $db['default'] = array(
-	//'dsn'	=> getenv('mysql://b6d8ca3b852434:a62dff20@us-cdbr-east-03.cleardb.com/heroku_081da15c9931bb6?reconnect=true'),
-	//'hostname' => "us-cdbr-east-03.cleardb.com",
-	//'username' => "b6d8ca3b852434",
-	//'password' => "a62dff20",
-	//'database' => "heroku_081da15c9931bb6",
+
 	'hostname' => "localhost",
 	'username' => "datauser",
 	'password' => "Data@mibn2020",
